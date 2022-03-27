@@ -1,0 +1,11 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls %}
+
+
+{% block object-tools-items %}
+<li>
+    {% url opts|admin_urlname:'export-freecad-job-template' original.pk|admin_urlquote as export_url %}
+    <a href="{% add_preserved_filters export_url %}" class="toollink">{% translate "JSON-Export" %}</a>
+</li>
+{{ block.super }}
+{% endblock %}

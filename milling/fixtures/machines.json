@@ -1,0 +1,22 @@
+[
+    {
+        "model": "milling.machine",
+        "pk": 1,
+        "fields": {
+            "name": "Generic (limited to 4k5)",
+            "spindle_net_power_kw": 2.0,
+            "max_rpm": 4500,
+            "max_vf": 6000.0
+        }
+    },
+    {
+        "model": "milling.machine",
+        "pk": 2,
+        "fields": {
+            "name": "Generic",
+            "spindle_net_power_kw": 2.0,
+            "max_rpm": 7500,
+            "max_vf": 6000.0
+        }
+    }
+]

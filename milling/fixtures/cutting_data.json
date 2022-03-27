@@ -1,0 +1,71 @@
+[
+    {
+        "model": "milling.cuttingdata",
+        "pk": 1,
+        "fields": {
+            "tool": 1,
+            "material": 1,
+            "fz_base": 0.03,
+            "vc_base": 160.0,
+            "fz_factor_slotting": 0.8,
+            "vc_factor_slotting": 0.75
+        }
+    },
+    {
+        "model": "milling.cuttingdata",
+        "pk": 2,
+        "fields": {
+            "tool": 2,
+            "material": 1,
+            "fz_base": 0.01,
+            "vc_base": 160.0,
+            "fz_factor_slotting": 0.8,
+            "vc_factor_slotting": 0.75
+        }
+    },
+    {
+        "model": "milling.cuttingrecipe",
+        "pk": 1,
+        "fields": {
+            "cutting_data": 1,
+            "machine": 1,
+            "machine_max_rpm_override": null,
+            "machine_max_vf_override": null,
+            "tool_fz_override": null,
+            "tool_vc_override": null,
+            "ae": 1.0,
+            "ap": 8.0,
+            "phi_selection": "OC"
+        }
+    },
+    {
+        "model": "milling.cuttingrecipe",
+        "pk": 2,
+        "fields": {
+            "cutting_data": 1,
+            "machine": 1,
+            "machine_max_rpm_override": null,
+            "machine_max_vf_override": null,
+            "tool_fz_override": null,
+            "tool_vc_override": null,
+            "ae": 7.0,
+            "ap": 1.0,
+            "phi_selection": "OC"
+        }
+    },
+    {
+        "model": "milling.cuttingrecipe",
+        "pk": 3,
+        "fields": {
+            "cutting_data": 2,
+            "machine": 1,
+            "machine_max_rpm_override": null,
+            "machine_max_vf_override": null,
+            "tool_fz_override": null,
+            "tool_vc_override": null,
+            "ae": 0.2,
+            "ap": 4.0,
+            "phi_selection": "OC"
+        }
+    }
+]
