@@ -1,0 +1,36 @@
+[
+    {
+        "model": "material.materialclass",
+        "pk": 1,
+        "fields": {
+            "name": "Aluminium"
+        }
+    },
+    {
+        "model": "material.materialclass",
+        "pk": 2,
+        "fields": {
+            "name": "Steel"
+        }
+    },
+    {
+        "model": "material.material",
+        "pk": 1,
+        "fields": {
+            "material_class": 1,
+            "name": "AlCuMg1",
+            "kc_1_1": 830.0,
+            "mc": 0.23
+        }
+    },
+    {
+        "model": "material.material",
+        "pk": 2,
+        "fields": {
+            "material_class": 2,
+            "name": "S235JR",
+            "kc_1_1": 1780.0,
+            "mc": 0.17
+        }
+    }
+]

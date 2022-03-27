@@ -1,0 +1,39 @@
+[
+    {
+        "model": "tool_library.vendor",
+        "pk": 1,
+        "fields": {
+            "name": "Kobratec"
+        }
+    },
+    {
+        "model": "tool_library.tool",
+        "pk": 1,
+        "fields": {
+            "vendor": 1,
+            "description": "",
+            "flute_count": 3,
+            "flute_length": 20.0,
+            "overall_length": 70.0,
+            "diameter": 8.0,
+            "cutting_edge_angle": 90.0,
+            "material": "CARBIDE",
+            "type": "ENDMILL"
+        }
+    },
+    {
+        "model": "tool_library.tool",
+        "pk": 2,
+        "fields": {
+            "vendor": 1,
+            "description": "",
+            "flute_count": 3,
+            "flute_length": 6.0,
+            "overall_length": 50.0,
+            "diameter": 2.0,
+            "cutting_edge_angle": 90.0,
+            "material": "CARBIDE",
+            "type": "ENDMILL"
+        }
+    }
+]
