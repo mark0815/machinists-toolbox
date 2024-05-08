@@ -9,10 +9,10 @@ class Tool(models.Model):
     class Material(models.TextChoices):
         HSS = "HSS", _("HSS")
         CARBIDE = "CARBIDE", _("Carbide")
-    
+
     class ToolType(models.TextChoices):
         ENDMILL = "ENDMILL", _("Endmill")
-        
+
     class CuttingDirection(models.TextChoices):
         OFF = "OFF", _("OFF")
         CW = "CW", _("CW")
@@ -40,7 +40,7 @@ class Tool(models.Model):
     )
 
     def __str__(self):
-        return f"{self.diameter}mm {self.flute_count}fl {self.get_material_display()} ({self.vendor})"
+        return f"{self.diameter}mm {self.flute_count}fl {self.material} ({self.vendor})"
 
     class Meta:
         ordering = ("vendor", "diameter")

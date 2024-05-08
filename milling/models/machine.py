@@ -7,7 +7,7 @@ class Machine(models.Model):
     max_vf = models.FloatField(verbose_name="Max cutting speed (mm/min)")
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
     class Meta:
         ordering = ("name",)

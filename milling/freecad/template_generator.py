@@ -1,7 +1,7 @@
 from milling.models import JobTemplate, ToolAssignment
 from tool_library.models import Tool
 import typing as t
-def generate_job_template_json(job_template:JobTemplate) -> dict[str, t.Union[str, float, int]]:
+def generate_job_template_json(job_template:JobTemplate) -> dict:
     return {
         "Fixtures": [
             {
@@ -68,7 +68,7 @@ def _freecad_tool_material(tool: Tool) -> t.Optional[str]:
             return "HSS"
         case Tool.Material.CARBIDE:
             return "Carbide"
-    
+
 def _freecad_job_coolant_mode(job_template:JobTemplate) -> t.Optional[str]:
     match job_template.CoolandMode(job_template.coolant_mode):
         case job_template.CoolandMode.MIST:

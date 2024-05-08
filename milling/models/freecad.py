@@ -20,7 +20,7 @@ class JobTemplate(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
     @property
     def job_template_json(self) -> dict[str, t.Union[str, float, int]]:
