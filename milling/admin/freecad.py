@@ -54,7 +54,8 @@ class JobTemplateAdmin(admin.ModelAdmin):
     def export_freecad(self, request, object_id):
         obj = JobTemplate.objects.get(id=object_id)
         response = HttpResponse(content_type="application/json")
-        response["Content-Disposition"] = f'attachment; filename="job_{obj.name}.json"'
+        filename = f"job_template_{obj.name.replace(' ','_')}.json"
+        response["Content-Disposition"] = f'attachment; filename="{filename}"'
         response.write(json.dumps(
             obj.job_template_json, sort_keys=True, indent=4))
         return response

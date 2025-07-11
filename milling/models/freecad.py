@@ -11,7 +11,7 @@ class JobTemplate(models.Model):
 
     name = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
-    material = models.ForeignKey("material.Material", on_delete=models.CASCADE)
+    material = models.ForeignKey("material.Material", on_delete=models.CASCADE,help_text=_("Currently used to filter for the recipe in the tool assignment."))
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
     coolant_mode = models.CharField(
         max_length=10, choices=CoolandMode.choices, default=CoolandMode.MIST
@@ -25,6 +25,10 @@ class JobTemplate(models.Model):
         from milling.freecad.template_generator import generate_job_template_json
         return generate_job_template_json(job_template=self)
 
+    class Meta:
+        verbose_name = _("FreeCAD Job Template")
+        verbose_name_plural = _("FreeCAD Job Templates")
+
 
 class ToolAssignment(models.Model):
     job = models.ForeignKey(
@@ -33,3 +37,6 @@ class ToolAssignment(models.Model):
     label = models.CharField(max_length=255, null=True, blank=True)
     recipe = models.ForeignKey(CuttingRecipe, on_delete=models.CASCADE)
     tool_pocket = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f"{self.tool_pocket} - {self.label or str(self.recipe)}"
