@@ -8,6 +8,7 @@ def generate_job_template_json(job_template:JobTemplate) -> dict:
                 "G54": True
             }
         ],
+        "Desc": job_template.description,
         "OrderOutputBy": "Fixture",
         "Post": "linuxcnc",
         "PostArgs": "",
@@ -42,10 +43,12 @@ def generate_job_template_json(job_template:JobTemplate) -> dict:
                         "Length": f"{tool.recipe.cutting_data.tool.overall_length} mm",
                         "Material": _freecad_tool_material(tool.recipe.cutting_data.tool),
                         "ShankDiameter": f"{tool.recipe.cutting_data.tool.diameter} mm",
-                        #"TipAngle": "119,00 \u00b0", Drill
-                        #"SpindleDirection":_freecad_tool_direction(tool.recipe.cutting_data.tool)
+                        "SpindleDirection":_freecad_tool_direction(tool.recipe.cutting_data.tool)
+                        #"TipAngle": "119,00 \u00b0", Chamfer/Drill
+                        # "TipDiameter": "0.1 mm" # Chamfer
                     },
                     "shape":_freecad_tool_shape(tool.recipe.cutting_data.tool),
+                    "shape-type":_freecad_tool_shape(tool.recipe.cutting_data.tool),
                 },
                 "xengine": [
                     {
@@ -78,8 +81,17 @@ def _freecad_job_coolant_mode(job_template:JobTemplate) -> t.Optional[str]:
 
 def _freecad_tool_shape(tool: Tool) -> t.Optional[str]:
     match Tool.ToolType(tool.type):
-        case Tool.ToolType.ENDMILL:
+         case Tool.ToolType.ENDMILL:
             return "endmill.fcstd"
+         case Tool.ToolType.CHAMFER:
+            return "chamfer.fcstd"
+
+def _freecad_tool_shape_type(tool: Tool) -> t.Optional[str]:
+    match Tool.ToolType(tool.type):
+        case Tool.ToolType.ENDMILL:
+            return "Endmill"
+        case Tool.ToolType.CHAMFER:
+            return "Chamfer"
 
 @staticmethod
 def _freecad_tool_direction(tool: Tool) -> t.Optional[str]:

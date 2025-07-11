@@ -39,7 +39,7 @@ class JobTemplateAdmin(admin.ModelAdmin):
         ToolAssignmentInline,
     ]
     readonly_fields = ["job_template_json"]
-    fields = ["name", "material", "machine",
+    fields = ["name", "description", "material", "machine",
               "coolant_mode", "job_template_json"]
 
     def get_urls(self):

@@ -12,6 +12,7 @@ class Tool(models.Model):
 
     class ToolType(models.TextChoices):
         ENDMILL = "ENDMILL", _("Endmill")
+        CHAMFER = "CHAMFER", _("Chamfer")
 
     class CuttingDirection(models.TextChoices):
         OFF = "OFF", _("OFF")

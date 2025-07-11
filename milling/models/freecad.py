@@ -3,9 +3,6 @@ from milling.models import CuttingRecipe, Machine
 import typing as t
 from django.utils.translation import gettext_lazy as _
 
-from tool_library.models import Tool
-
-
 class JobTemplate(models.Model):
 
     class CoolandMode(models.TextChoices):
@@ -13,6 +10,7 @@ class JobTemplate(models.Model):
         FLOOD = "FLOOD", _("Flood")
 
     name = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
     material = models.ForeignKey("material.Material", on_delete=models.CASCADE)
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
     coolant_mode = models.CharField(

@@ -1,5 +1,6 @@
 """ Calculator module """
 from math import asin, pi, sin
+import typing
 
 
 def calculate_rpm_vf(
@@ -7,8 +8,8 @@ def calculate_rpm_vf(
     feed_per_tooth: float,
     tool_diameter: float,
     tool_flute_count: int,
-    max_rpm: float = None,
-    max_vf: float = None,
+    max_rpm: typing.Optional[float] = None,
+    max_vf: typing.Optional[float] = None,
 ) -> tuple[float, float]:
     rpm = (cutting_speed * 1000) / (pi * tool_diameter)
     vf = rpm * feed_per_tooth * tool_flute_count
